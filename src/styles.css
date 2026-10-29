@@ -194,11 +194,12 @@ body {
   width: 100%;
 }
 
+/* Perfil & Avatar de Gran Impacto (Formato Rectangular Editorial) */
 .avatar-wrapper {
   position: relative;
-  width: 172px;
-  height: 172px;
-  margin-bottom: 1.5rem;
+  width: 240px;
+  height: 290px;
+  margin-bottom: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,54 +208,82 @@ body {
 
 .avatar-halo-glow {
   position: absolute;
-  inset: -14px;
-  border-radius: 50%;
+  inset: -12px;
+  border-radius: 28px;
   background: conic-gradient(from 0deg, #6366f1, #38bdf8, #ec4899, #818cf8, #6366f1);
-  filter: blur(20px);
-  opacity: 0.35;
+  filter: blur(28px);
+  opacity: 0.32;
   animation: ringShine 18s linear infinite;
 }
 
 .avatar-ring-frame {
   position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  padding: 3px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.5));
-  box-shadow: 0 12px 28px -6px rgba(99, 102, 241, 0.25);
-  animation: ringShine 24s linear infinite;
+  inset: -2px;
+  border-radius: 26px;
+  padding: 2px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.4), rgba(56, 189, 248, 0.35));
+  box-shadow: 0 16px 36px -8px rgba(99, 102, 241, 0.22);
+  z-index: 1;
+}
+
+.avatar-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 2;
+  background: #ffffff;
 }
 
 .avatar-image {
   position: relative;
-  width: 164px;
-  height: 164px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
   object-fit: cover;
   object-position: center 20%;
-  border: 4px solid #ffffff;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  display: block;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efecto de difuminado suave y armónico con el fondo */
+.avatar-soft-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  pointer-events: none;
   z-index: 2;
-  transition: transform 0.4s ease;
+  box-shadow: inset 0 0 25px 8px rgba(248, 250, 252, 0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.12) 0%,
+    transparent 15%,
+    transparent 75%,
+    rgba(248, 250, 252, 0.55) 100%
+  );
 }
 
 .avatar-wrapper:hover .avatar-image {
-  transform: scale(1.03);
+  transform: scale(1.035);
 }
 
 .status-badge {
   position: absolute;
-  bottom: 6px;
-  right: 10px;
+  bottom: -10px;
+  right: 14px;
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.28rem 0.65rem;
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.32rem 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-  z-index: 3;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  z-index: 5;
 }
 
 .status-dot {
@@ -266,7 +295,7 @@ body {
 }
 
 .status-text {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #334155;
   letter-spacing: 0.02em;
@@ -485,12 +514,20 @@ body {
     padding: 1.5rem 1rem 3.5rem 1rem;
   }
   .avatar-wrapper {
-    width: 148px;
-    height: 148px;
+    width: 200px;
+    height: 245px;
   }
-  .avatar-image {
-    width: 140px;
-    height: 140px;
+  .avatar-halo-glow {
+    border-radius: 24px;
+    filter: blur(20px);
+  }
+  .avatar-ring-frame {
+    border-radius: 22px;
+  }
+  .avatar-image-container,
+  .avatar-image,
+  .avatar-soft-overlay {
+    border-radius: 20px;
   }
   .profile-name {
     font-size: 1.5rem;

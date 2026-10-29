@@ -176,19 +176,22 @@ export default function Linktree() {
           </button>
         </header>
 
-        {/* Sección de Perfil con Foto Grande y Presencia */}
+        {/* Sección de Perfil con Formato Rectangular y Bordes Suavizados */}
         <section className="profile-section">
           <div className="avatar-wrapper">
             <div className="avatar-halo-glow"></div>
             <div className="avatar-ring-frame"></div>
-            <img 
-              src="/profile.jpg" 
-              alt="Adrián Alemany Martínez" 
-              className="avatar-image"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
-              }}
-            />
+            <div className="avatar-image-container">
+              <img 
+                src="/profile.jpg" 
+                alt="Adrián Alemany Martínez" 
+                className="avatar-image"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
+                }}
+              />
+              <div className="avatar-soft-overlay" aria-hidden="true"></div>
+            </div>
             <div className="status-badge" title="Disponible para nuevos proyectos">
               <span className="status-dot"></span>
               <span className="status-text">Available</span>
