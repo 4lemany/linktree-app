@@ -198,35 +198,44 @@ body {
 .background-slideshow {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
 }
 
 .bg-slide-item {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 1.8s ease-in-out, transform 8s ease-out;
-  filter: saturate(1.1) brightness(0.92);
+  transform: scale(1.05);
+  transition: opacity 2s ease-in-out, transform 9s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: opacity, transform;
 }
 
 .bg-slide-item.active {
-  opacity: 0.35;
+  opacity: 0.85;
   transform: scale(1);
 }
 
+/* Velo translúcido ligero para mantener las fotos nítidas y la legibilidad perfecta */
 .bg-slideshow-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(248, 250, 252, 0.72) 0%, rgba(248, 250, 252, 0.90) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(248, 250, 252, 0.45) 0%,
+    rgba(248, 250, 252, 0.75) 70%,
+    rgba(248, 250, 252, 0.88) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 /* Perfil & Avatar de Gran Impacto (Formato Rectangular Natural) */
