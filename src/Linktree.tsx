@@ -298,7 +298,7 @@ export default function Linktree() {
             <Icons.Github />
           </a>
           <a 
-            href="https://linkedin.com/in/adrian-alemany" 
+            href="https://www.linkedin.com/in/adri%C3%A1n-alemany-97202a227" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="dock-item-btn"
@@ -318,7 +318,7 @@ export default function Linktree() {
             <Icons.Globe />
           </a>
           <a 
-            href="mailto:contact@adrianalemany.tech" 
+            href="mailto:adrianalemany40@gmail.com" 
             className="dock-item-btn"
             aria-label="Contactar por correo"
             title="Email"
