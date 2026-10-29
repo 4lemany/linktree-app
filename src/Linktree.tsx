@@ -1,5 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
+
+// Imágenes de fondo dinámicas desde el directorio back/
+import bg1 from "../back/1788348619622.png";
+import bg2 from "../back/IMG-20250709-WA0045.jpg";
+import bg3 from "../back/IMG-20251212-WA0023.jpg";
+import bg4 from "../back/IMG-20260926-WA0006.jpg";
+import bg5 from "../back/IMG20260911205328.jpg";
+import bg6 from "../back/IMG_20261029_144449.jpg";
+import bg7 from "../back/IMG_20261029_144827.jpg";
+import bg8 from "../back/_1078566.jpg";
+
+const BACKGROUND_IMAGES = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8];
 
 const Icons = {
   Sparkles: () => (
@@ -135,6 +147,15 @@ const LINKS: LinkItem[] = [
 
 export default function Linktree() {
   const [copied, setCopied] = useState(false);
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleCopy = () => {
     if (navigator.clipboard) {
@@ -146,6 +167,18 @@ export default function Linktree() {
 
   return (
     <>
+      {/* Diapositivas de fondo dinámicas (cambian cada 7 segundos) */}
+      <div className="background-slideshow" aria-hidden="true">
+        {BACKGROUND_IMAGES.map((imgSrc, index) => (
+          <div
+            key={index}
+            className={`bg-slide-item ${index === currentBgIndex ? "active" : ""}`}
+            style={{ backgroundImage: `url(${imgSrc})` }}
+          />
+        ))}
+        <div className="bg-slideshow-overlay"></div>
+      </div>
+
       {/* Fondo Luminoso Editorial */}
       <div className="luminous-bg">
         <div className="aurora-sphere sphere-1"></div>
@@ -176,7 +209,7 @@ export default function Linktree() {
           </button>
         </header>
 
-        {/* Sección de Perfil con Formato Rectangular y Bordes Suavizados */}
+        {/* Sección de Perfil con Formato Rectangular Natural */}
         <section className="profile-section">
           <div className="avatar-wrapper">
             <div className="avatar-halo-glow"></div>
@@ -190,7 +223,6 @@ export default function Linktree() {
                   (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
                 }}
               />
-              <div className="avatar-soft-overlay" aria-hidden="true"></div>
             </div>
             <div className="status-badge" title="Disponible para nuevos proyectos">
               <span className="status-dot"></span>
