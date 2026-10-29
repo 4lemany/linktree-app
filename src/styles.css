@@ -217,7 +217,7 @@ body {
 .bg-slide-item {
   position: absolute;
   inset: 0;
-  background-size: 65%;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
@@ -228,7 +228,7 @@ body {
 }
 
 .bg-slide-item.active {
-  opacity: 0.72;
+  opacity: 0.60;
 }
 
 /* Capa tenue encima de las fotos para mantener legibilidad del contenido */
