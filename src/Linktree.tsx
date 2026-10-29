@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-// SVG Icons crafted cleanly without heavy runtime packages
 const Icons = {
   Sparkles: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
       <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
     </svg>
@@ -39,18 +38,18 @@ const Icons = {
     </svg>
   ),
   ArrowUpRight: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7 17L17 7"/>
       <path d="M7 7h10v10"/>
     </svg>
   ),
   Check: () => (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="20 6 9 17 4 12"/>
     </svg>
   ),
   Share: () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
       <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
       <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
@@ -68,15 +67,15 @@ const Icons = {
       <rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
     </svg>
   ),
+  Globe: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </svg>
+  ),
   Mail: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect width="20" height="16" x="2" y="4" rx="2"/>
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-    </svg>
-  ),
-  Globe: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
     </svg>
   ),
 };
@@ -86,50 +85,50 @@ interface LinkItem {
   title: string;
   subtitle: string;
   url: string;
-  isFeatured?: boolean;
+  isHero?: boolean;
   pillText?: string;
   iconBg: string;
   iconColor: string;
   icon: () => JSX.Element;
 }
 
-const FEATURE_LINKS: LinkItem[] = [
+const LINKS: LinkItem[] = [
   {
     id: "who-i-am",
     title: "Who I am — Portfolio & Trayectoria",
-    subtitle: "Conoce mi perfil completo, proyectos 3D y experiencia interactiva",
+    subtitle: "Explora mis proyectos de Machine Learning, visión interactiva 3D y perfil profesional",
     url: "https://adrianalemanytech.vercel.app/",
-    isFeatured: true,
+    isHero: true,
     pillText: "Portfolio Principal",
-    iconBg: "linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(99, 102, 241, 0.35))",
-    iconColor: "#c084fc",
+    iconBg: "#e0e7ff",
+    iconColor: "#4338ca",
     icon: Icons.User,
   },
   {
     id: "alina-job-search",
     title: "Alina — Job Search AI Agent",
-    subtitle: "Plataforma inteligente y autónoma de búsqueda y análisis de ofertas",
+    subtitle: "Agente inteligente y autónomo para búsqueda y recomendación personalizada de empleo",
     url: "https://alina-brown.vercel.app/",
-    iconBg: "rgba(56, 189, 248, 0.15)",
-    iconColor: "#38bdf8",
+    iconBg: "#e0f2fe",
+    iconColor: "#0284c7",
     icon: Icons.SearchJob,
   },
   {
     id: "tecnocracia",
     title: "Tecnocracia",
-    subtitle: "Plataforma analítica interactiva y observatorio tecnológico en Streamlit",
+    subtitle: "Plataforma analítica e interactiva con visualización de datos en tiempo real",
     url: "https://tecnocracia.streamlit.app/",
-    iconBg: "rgba(244, 63, 94, 0.15)",
-    iconColor: "#fb7185",
+    iconBg: "#fee2e2",
+    iconColor: "#e11d48",
     icon: Icons.Cpu,
   },
   {
     id: "balearia-predictor",
     title: "Balearia — Predictor de Consumo",
-    subtitle: "Modelo predictivo de optimización de combustible e impacto marítimo",
+    subtitle: "Modelo predictivo para eficiencia y optimización de consumo de combustible marítimo",
     url: "https://baleariatravels.vercel.app/",
-    iconBg: "rgba(16, 185, 129, 0.15)",
-    iconColor: "#34d399",
+    iconBg: "#dcfce7",
+    iconColor: "#059669",
     icon: Icons.Ship,
   },
 ];
@@ -137,38 +136,36 @@ const FEATURE_LINKS: LinkItem[] = [
 export default function Linktree() {
   const [copied, setCopied] = useState(false);
 
-  const handleShare = () => {
+  const handleCopy = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(window.location.href);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2400);
+      setTimeout(() => setCopied(false), 2200);
     }
   };
 
   return (
     <>
-      {/* Background Animated Aurora */}
-      <div className="aurora-bg">
-        <div className="aurora-blob blob-1"></div>
-        <div className="aurora-blob blob-2"></div>
-        <div className="aurora-blob blob-3"></div>
+      {/* Fondo Luminoso Editorial */}
+      <div className="luminous-bg">
+        <div className="aurora-sphere sphere-1"></div>
+        <div className="aurora-sphere sphere-2"></div>
       </div>
-      <div className="grid-overlay"></div>
+      <div className="noise-dots"></div>
 
-      {/* Main Content App */}
       <main className="linktree-app-container">
-        {/* Top Share Bar */}
+        {/* Barra Superior */}
         <header className="top-action-bar">
           <button 
             type="button" 
             className={`share-pill-btn ${copied ? "copied" : ""}`} 
-            onClick={handleShare}
+            onClick={handleCopy}
             aria-label="Compartir perfil"
           >
             {copied ? (
               <>
                 <Icons.Check />
-                <span>¡Copiado al portapapeles!</span>
+                <span>¡Enlace copiado!</span>
               </>
             ) : (
               <>
@@ -179,40 +176,40 @@ export default function Linktree() {
           </button>
         </header>
 
-        {/* Profile Card / Avatar with Halo */}
+        {/* Sección de Perfil con Foto Grande y Presencia */}
         <section className="profile-section">
           <div className="avatar-wrapper">
-            <div className="avatar-glow"></div>
-            <div className="avatar-border-ring"></div>
+            <div className="avatar-halo-glow"></div>
+            <div className="avatar-ring-frame"></div>
             <img 
               src="/profile.jpg" 
               alt="Adrián Alemany Martínez" 
               className="avatar-image"
               onError={(e) => {
-                // Fallback to high-res stylized placeholder if profile.jpg fails
-                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80";
+                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80";
               }}
             />
-            <div className="verified-badge" title="Ingeniero Verificado">
-              <Icons.Sparkles />
+            <div className="status-badge" title="Disponible para nuevos proyectos">
+              <span className="status-dot"></span>
+              <span className="status-text">Available</span>
             </div>
           </div>
 
           <h1 className="profile-name">Adrián Alemany Martínez</h1>
-          <div className="profile-role-tag">
+          <div className="profile-role-pill">
             <Icons.Sparkles />
             <span>AI &amp; Data Engineer</span>
           </div>
           <p className="profile-bio">
-            Transformando datos complejos e inteligencia artificial generativa en soluciones de alto impacto y productos escalables.
+            Diseñando arquitecturas de datos de alto rendimiento e implementando modelos de Inteligencia Artificial generativa orientados a producto.
           </p>
         </section>
 
-        {/* Dynamic Feature Cards Stack */}
-        <section className="cards-stack" aria-label="Enlaces destacados">
-          {FEATURE_LINKS.map((link, idx) => {
+        {/* Colección de Enlaces con diseño Editorial Refinado */}
+        <section className="cards-stack" aria-label="Proyectos y enlaces">
+          {LINKS.map((link, idx) => {
             const IconComponent = link.icon;
-            const isHero = link.isFeatured;
+            const isHero = link.isHero;
 
             return (
               <a
@@ -220,43 +217,32 @@ export default function Linktree() {
                 href={link.url}
                 target={isHero ? "_self" : "_blank"}
                 rel={isHero ? undefined : "noopener noreferrer"}
-                className={`feature-card ${isHero ? "hero-feature-card" : ""}`}
+                className={`editorial-card ${isHero ? "hero-editorial-card" : ""}`}
                 style={{
-                  animation: `fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-                  animationDelay: `${0.15 + idx * 0.08}s`,
-                }}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
-                  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+                  animationDelay: `${0.18 + idx * 0.09}s`,
                 }}
               >
-                {/* Icon Column */}
                 <div 
-                  className="card-icon-box"
+                  className="card-visual-box"
                   style={{ 
-                    background: link.iconBg, 
+                    backgroundColor: link.iconBg, 
                     color: link.iconColor 
                   }}
                 >
                   <IconComponent />
                 </div>
 
-                {/* Info Column */}
-                <div className="card-info">
-                  <div className="card-title-row">
+                <div className="card-body">
+                  <div className="card-headline">
                     <span className="card-title">{link.title}</span>
                     {link.pillText && (
-                      <span className="featured-pill">{link.pillText}</span>
+                      <span className="tag-badge">{link.pillText}</span>
                     )}
                   </div>
-                  <p className="card-desc">{link.subtitle}</p>
+                  <p className="card-description">{link.subtitle}</p>
                 </div>
 
-                {/* Arrow Action */}
-                <div className="card-arrow-box" aria-hidden="true">
+                <div className="card-nav-arrow" aria-hidden="true">
                   <Icons.ArrowUpRight />
                 </div>
               </a>
@@ -264,14 +250,14 @@ export default function Linktree() {
           })}
         </section>
 
-        {/* Minimalist Floating Social Dock */}
-        <nav className="social-dock-bar" aria-label="Redes sociales y contacto">
+        {/* Dock Flotante de Conexión */}
+        <nav className="floating-dock" aria-label="Canales de contacto y redes">
           <a 
             href="https://github.com/4lemany" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="social-icon-btn"
-            aria-label="GitHub"
+            className="dock-item-btn"
+            aria-label="GitHub de Adrián Alemany"
             title="GitHub"
           >
             <Icons.Github />
@@ -280,8 +266,8 @@ export default function Linktree() {
             href="https://linkedin.com/in/adrian-alemany" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="social-icon-btn"
-            aria-label="LinkedIn"
+            className="dock-item-btn"
+            aria-label="LinkedIn de Adrián Alemany"
             title="LinkedIn"
           >
             <Icons.Linkedin />
@@ -290,25 +276,25 @@ export default function Linktree() {
             href="https://adrianalemanytech.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="social-icon-btn"
-            aria-label="Sitio Web Principal"
+            className="dock-item-btn"
+            aria-label="Portfolio Web Oficial"
             title="Portfolio Web"
           >
             <Icons.Globe />
           </a>
           <a 
             href="mailto:contact@adrianalemany.tech" 
-            className="social-icon-btn"
-            aria-label="Enviar correo"
-            title="Contacto directo"
+            className="dock-item-btn"
+            aria-label="Contactar por correo"
+            title="Email"
           >
             <Icons.Mail />
           </a>
         </nav>
 
-        {/* Footer Note */}
-        <footer className="linktree-footer">
-          <p>© {new Date().getFullYear()} Adrián Alemany Martínez · Built with Precision &amp; AI</p>
+        {/* Footer */}
+        <footer className="site-footer">
+          <p>© {new Date().getFullYear()} Adrián Alemany Martínez</p>
         </footer>
       </main>
     </>
