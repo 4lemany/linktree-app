@@ -194,12 +194,12 @@ body {
   width: 100%;
 }
 
-/* Perfil & Avatar de Gran Impacto (Formato Rectangular Editorial) */
+/* Perfil & Avatar de Gran Impacto (Formato Rectángulo Apaisado / Horizontal) */
 .avatar-wrapper {
   position: relative;
-  width: 240px;
-  height: 290px;
-  margin-bottom: 1.75rem;
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,71 +208,72 @@ body {
 
 .avatar-halo-glow {
   position: absolute;
-  inset: -12px;
-  border-radius: 28px;
+  inset: -8px;
+  border-radius: 24px;
   background: conic-gradient(from 0deg, #6366f1, #38bdf8, #ec4899, #818cf8, #6366f1);
-  filter: blur(28px);
-  opacity: 0.32;
-  animation: ringShine 18s linear infinite;
+  filter: blur(22px);
+  opacity: 0.22;
+  animation: ringShine 22s linear infinite;
 }
 
 .avatar-ring-frame {
   position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  padding: 2px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.4), rgba(56, 189, 248, 0.35));
-  box-shadow: 0 16px 36px -8px rgba(99, 102, 241, 0.22);
+  inset: -1px;
+  border-radius: 22px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.25), rgba(56, 189, 248, 0.2));
+  box-shadow: 0 14px 32px -8px rgba(99, 102, 241, 0.16);
   z-index: 1;
 }
 
 .avatar-image-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
   z-index: 2;
   background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar-image {
   position: relative;
   width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  object-fit: cover;
-  object-position: center 20%;
+  height: auto;
+  max-height: 270px;
+  object-fit: contain;
   display: block;
   z-index: 1;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Efecto de difuminado suave y armónico con el fondo */
+/* Efecto de suavizado sutil y delicado con el fondo */
 .avatar-soft-overlay {
   position: absolute;
   inset: 0;
-  border-radius: 24px;
+  border-radius: 20px;
   pointer-events: none;
   z-index: 2;
-  box-shadow: inset 0 0 25px 8px rgba(248, 250, 252, 0.6);
+  box-shadow: inset 0 0 14px 2px rgba(248, 250, 252, 0.45);
   background: linear-gradient(
     180deg,
-    rgba(248, 250, 252, 0.12) 0%,
-    transparent 15%,
-    transparent 75%,
-    rgba(248, 250, 252, 0.55) 100%
+    rgba(248, 250, 252, 0.05) 0%,
+    transparent 12%,
+    transparent 88%,
+    rgba(248, 250, 252, 0.28) 100%
   );
 }
 
 .avatar-wrapper:hover .avatar-image {
-  transform: scale(1.035);
+  transform: scale(1.02);
 }
 
 .status-badge {
   position: absolute;
   bottom: -10px;
-  right: 14px;
+  right: 18px;
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -514,20 +515,22 @@ body {
     padding: 1.5rem 1rem 3.5rem 1rem;
   }
   .avatar-wrapper {
-    width: 200px;
-    height: 245px;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .avatar-image {
+    max-height: 220px;
   }
   .avatar-halo-glow {
-    border-radius: 24px;
-    filter: blur(20px);
+    border-radius: 20px;
+    filter: blur(16px);
   }
   .avatar-ring-frame {
-    border-radius: 22px;
+    border-radius: 18px;
   }
   .avatar-image-container,
-  .avatar-image,
   .avatar-soft-overlay {
-    border-radius: 20px;
+    border-radius: 16px;
   }
   .profile-name {
     font-size: 1.5rem;
